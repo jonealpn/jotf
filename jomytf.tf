@@ -13,7 +13,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
-#Hi
+
 
 resource "aws_instance" "mytfinstance" {
   ami           = "resolve:ssm:/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2" 
@@ -30,4 +30,12 @@ resource "aws_s3_bucket" "example" {
   tags = {
     Name        = "My bucket"
   }
+}
+
+resource "aws_vpc_security_group_ingress_rule" "allow_ssh" {
+  security_group_id = aws_security_group.allow_tls.id
+  cidr_ipv4         = "192.168.1.137"
+  from_port         = 22
+  ip_protocol       = "ssh"
+  to_port           = 22
 }
