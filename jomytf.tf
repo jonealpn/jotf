@@ -20,4 +20,5 @@ resource "aws_instance" "mytfinstance" {
   tags = {
     Name = "tfServerInstance"
   }
+  ebs_optimized = true
 }
