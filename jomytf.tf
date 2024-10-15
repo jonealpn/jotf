@@ -20,4 +20,7 @@ resource "aws_instance" "mytfinstance" {
   tags = {
     Name = "tfServerInstance"
   }
+  metadata_options {
+    http_tokens = "required"
+  }
 }
