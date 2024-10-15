@@ -13,6 +13,8 @@ provider "aws" {
   region = "us-east-1"
 }
 
+#Hi
+
 resource "aws_instance" "mytfinstance" {
   ami           = "resolve:ssm:/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2" 
   instance_type = "t2.micro"
